@@ -31,9 +31,9 @@ public class ViewModel implements Joystick.JoystickMoved{
         model.dispatch_rudder();
     }
 
-    public void ThrottleChanged(SeekBar seekBar, int value, boolean fromUser) throws InterruptedException {
+    public void ThrottleChanged(int value) throws InterruptedException {
         //is the value good?
-        model.setThrottle(seekBar.getProgress());
+        model.setThrottle(value);
         model.dispatch_throttle();
     }
 }

@@ -15,56 +15,46 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <FrameLayout
-            android:id="@+id/frameLayout"
+
+
+        <com.example.androidapp_remote_joystick.Joystick
+            android:id="@+id/joystick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="1sp"
-            android:layout_weight="1"
-            android:background="@drawable/view_joystick"
-            android:foregroundGravity="center"
+            android:layout_gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- android:onProgressChanged="@{viewModel.ThrottleChanged}"-->
 
 
-            <com.example.androidapp_remote_joystick.Joystick
-                android:id="@+id/joystick"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+        <!--android:onProgressChanged="@{viewModel.RudderChanged}"-->
 
-                android:layout_gravity="center"
-                android:background="@drawable/shape_joystick" />
-
-
-        </FrameLayout>
 
         <SeekBar
             android:id="@+id/seekBarThrottle"
-            android:layout_width="170dp"
-            android:layout_height="180dp"
+            android:layout_width="150dp"
+            android:layout_height="89dp"
 
+            android:layout_marginEnd="268dp"
+            android:layout_marginRight="268dp"
             android:max="100"
             android:min="-100"
             android:progress="0"
-            android:rotation="90"
+            android:progressTint="@color/black"
+
+
+            android:rotation="-90"
+
             android:scaleX="2"
             android:scaleY="2"
-            android:scrollY="-80dp"
+            android:thumbTint="@color/purple_700"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:progressTint="@color/black"
-            android:thumbTint="@color/purple_700"
-            android:tickMarkTint="@color/teal_200"/>
-       <!-- android:onProgressChanged="@{viewModel.ThrottleChanged}"-->
-
-
-
-
+            app:layout_constraintVertical_bias="0.545" />
 
         <SeekBar
 
@@ -82,14 +72,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
 
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.61"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.796"/>
-         <!--android:onProgressChanged="@{viewModel.RudderChanged}"-->
-
-
+            app:layout_constraintVertical_bias="0.853" />
 
         <Button
             android:id="@+id/connect_button"

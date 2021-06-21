@@ -20,7 +20,7 @@ public class Model {
             this.port = port;
         }
 
-        void connect() throws IOException{
+        public void connect() throws IOException{
             try {
                 Socket fg = new Socket(ip, port);
                 out = new PrintWriter(fg.getOutputStream(), true);
@@ -42,7 +42,7 @@ public class Model {
             }
         }
 
-        void dispatch_fly() throws InterruptedException {
+        public void dispatch_fly() throws InterruptedException {
             dispatchQueue.put(new Runnable() {
                 @Override
                 public void run() {
@@ -52,19 +52,14 @@ public class Model {
                     out.flush();
                 }
             });
-        /*dispatchQueue.put(new Runnable() {
-            @Override
-            public void run() {
-                out.print("set/controls/flight/elevator" + elevator + "\r\n");
-                out.flush();
-            }
-        });*/
+
         }
 
         void dispatch_rudder() throws InterruptedException{
             dispatchQueue.put(new Runnable() {
                 @Override
                 public void run() {
+                    System.out.println("rudder is " + rudder);
                     out.print("set/controls/flight/rudder" + rudder + "\r\n");
                     out.flush();
                 }
@@ -75,6 +70,7 @@ public class Model {
             dispatchQueue.put(new Runnable() {
                 @Override
                 public void run() {
+                    System.out.println("trhottl dispatch is " + throttle);
                     out.print("set/controls/engines/current-engine/throttle" + throttle + "\r\n");
                     out.flush();
                 }
@@ -82,19 +78,25 @@ public class Model {
         }
 
         public void setAileron(double aileron) {
-            this.aileron = aileron;
+            this.aileron=aileron;
+            System.out.println("aileron is " + this.aileron);
         }
 
         public void setElevator(double elevator) {
 
             this.elevator = elevator;
+            System.out.println("elevator is " + this.elevator);
         }
 
         public void setRudder(double rudder) {
-            this.rudder = rudder;
+            this.rudder = rudder/100;
+            System.out.println("rudder is " + this.rudder);
         }
 
         public void setThrottle(double throttle) {
-            this.throttle = throttle;
+
+            this.throttle = throttle/100;
+            System.out.println("trhottle is " + this.throttle);
+
         }
 }

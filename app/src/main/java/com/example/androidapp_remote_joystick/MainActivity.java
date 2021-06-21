@@ -17,28 +17,28 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    String ip_adress;
-    int port;
-    EditText ip_adressInput;
-    EditText portInput;
-    Button connectButton;
-    ViewModel viewModel;
-    Joystick joystick;
-    SeekBar trhottle;
-    SeekBar rudder;
+    private String ip_adress;
+    private int port;
+    private EditText ip_adressInput;
+    private EditText portInput;
+    private  Button connectButton;
+    private ViewModel viewModel;
+    private  Joystick joystick;
+    private   SeekBar seekBarThrottle;
+    private SeekBar rudder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+setContentView(R.layout.activity_main);
         ActivityMainBinding activityBind = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         ip_adressInput = findViewById(R.id.ip_adress);
         portInput = findViewById(R.id.port);
         connectButton = findViewById(R.id.connect_button);
         joystick = findViewById(R.id.joystick);
-        rudder = findViewById(R.id.seekBarRudder);
-        trhottle = findViewById(R.id.seekBarThrottle);
+        rudder = (SeekBar) findViewById(R.id.seekBarRudder);
+        seekBarThrottle = (SeekBar) findViewById(R.id.seekBarThrottle);
 
         //when connect is click we will store the ip and port entered
         connectButton.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +61,49 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        seekBarThrottle.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                try {
+                    viewModel.ThrottleChanged(progress);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        rudder.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                try {
+                    viewModel.RudderChanged(rudder, progress, fromUser);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
     }
 }
+
+
+
