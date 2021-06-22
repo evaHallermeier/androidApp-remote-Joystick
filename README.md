@@ -1,4 +1,4 @@
-# Remote Joystick Control for Flight Gear -Android Application
+# Remote Joystick Control for Flight Gear - Android Application
 [Click here for the Demo Video](link here to add)
 
 This project is an android application, developed in Java with Android Studio. The app uses a client-server structure and MVVM architecture, it give to the user to control the plane in the Flight Gear simulator.
