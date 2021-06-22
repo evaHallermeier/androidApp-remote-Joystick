@@ -7,7 +7,7 @@ Flight Gear is an open-source program which is free for download for anyone onto
 The Flight Gear will provide the simulation of the flight that the user can be the pilot and our app will provide controls to interact with.
 
 The user need to open the app, enter his ip, a port and click in the CONNECT button and he can move the different element (Joystick and two seek bar to move the different features of the plane).
-<img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/tree/master/image/screen.PNG" width="600" height="300"/>
+<img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/screen.PNG" width="600" height="300"/>
 
 ## Getting Started
 
