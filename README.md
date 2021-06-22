@@ -44,6 +44,15 @@ The code has been separated in different classes: Joystick and mainactivity are 
 We provide a Uml diagram of the project in the file (FlightUml.png)
 
 ## Functionalities
+**IP and Port**
+
+
+<img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/ip-port.PNG" width="160" height="105"/>
+<img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/ipPort.PNG" width="160" height="105"/>
+
+**Joystick and Seek Bars**
+<img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/joystickSeekBar.PNG" width="160" height="105"/>
+
 
 //explain different features: srat process+ seek bar +joystick
 
