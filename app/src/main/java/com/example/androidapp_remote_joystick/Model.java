@@ -13,46 +13,76 @@ public class Model {
         private double elevator;
         private double rudder;
         private double throttle;
+       // private Socket fg;
 
 
-        public Model(String ip, int port)  {
+        public Model(String ip, int port) {
             this.ip = ip;
             this.port = port;
         }
 
-        public void connect() throws IOException{
-            try {
-                System.out.println("port is" + port);
-                System.out.println("ip ip is" + ip);
-                Socket fg = new Socket(ip, port);
-                out = new PrintWriter(fg.getOutputStream(), true);
+    public void back_connect() throws IOException{
+        try {
+            System.out.println("port is" + port);
+            System.out.println("ip ip is" + ip);
+        //    Socket fg = new Socket(ip,port);
+        //    Socket fg = new Socket("192.168.0.92", 4477);
+         //   out = new PrintWriter(fg.getOutputStream(), true);
+            System.out.println("laurent" + ip);
 
-                new Thread(new Runnable() {
-                    public void run() {
-                       // Socket fg = new Socket(ip, port);
-                        //out = new PrintWriter(fg.getOutputStream(), true);
-                        while (true) {
-                            try {
-                                dispatchQueue.take().run();
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
+            new Thread(new Runnable() {
+                public void run() {
+                    try{
+                    Socket fg = new Socket("192.168.0.92", 4477);
+                    out = new PrintWriter(fg.getOutputStream(), true);
+                    while (true) {
+                        try {
+                            dispatchQueue.take().run();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
+                    }}catch(Exception e){
+                        System.out.println("Server problem");
                     }
-                }).start();
-            }
-            catch(Exception e){
-                System.out.println("Server problem");
-            }
+                }
+            }).start();
         }
+        catch(Exception e){
+            System.out.println("Server problem");
+        }
+    }
 
-        public void dispatch_fly() throws InterruptedException {
+    public void connect() throws IOException{
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        System.out.println("port is" + port);
+                        System.out.println("ip ip is" + ip);
+                           Socket fg = new Socket(ip,port);
+                       // Socket fg = new Socket("192.168.0.92", 4477);
+                        out = new PrintWriter(fg.getOutputStream(), true);
+                        System.out.println("laurent" + ip);
+
+                        while (true) {
+                            dispatchQueue.take().run();
+                        }
+
+
+                    } catch (Exception e) {
+                        System.out.println("Server problem");
+                    }
+                }
+            }).start();
+
+    }
+
+    public void dispatch_fly() throws InterruptedException {
             dispatchQueue.put(new Runnable() {
                 @Override
                 public void run() {
-                    out.print("set/controls/flight/aileron" + aileron + "\r\n");
+                    out.print("set /controls/flight/aileron " + aileron + "\r\n");
                     out.flush();
-                    out.print("set/controls/flight/elevator" + elevator + "\r\n");
+                    out.print("set /controls/flight/elevator " + elevator + "\r\n");
                     out.flush();
                 }
             });
@@ -64,7 +94,7 @@ public class Model {
                 @Override
                 public void run() {
                     System.out.println("rudder is " + rudder);
-                    out.print("set/controls/flight/rudder" + rudder + "\r\n");
+                    out.print("set /controls/flight/rudder " + rudder + "\r\n");
                     out.flush();
                 }
             });
@@ -74,8 +104,8 @@ public class Model {
             dispatchQueue.put(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("trhottl dispatch is " + throttle);
-                    out.print("set/controls/engines/current-engine/throttle" + throttle + "\r\n");
+                    System.out.println("throttle dispatch is " + throttle);
+                    out.print("set /controls/engines/current-engine/throttle " + throttle + "\r\n");
                     out.flush();
                 }
             });

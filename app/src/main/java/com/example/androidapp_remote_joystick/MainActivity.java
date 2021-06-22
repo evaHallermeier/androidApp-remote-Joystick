@@ -27,10 +27,11 @@ public class MainActivity extends AppCompatActivity {
     private   SeekBar seekBarThrottle;
     private SeekBar rudder;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         ActivityMainBinding activityBind = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         ip_adressInput = findViewById(R.id.ip_adress);
@@ -48,8 +49,8 @@ setContentView(R.layout.activity_main);
                 port = Integer.valueOf(portInput.getText().toString());
 
                 viewModel = new ViewModel(ip_adress, port);
-              //  rudder.setOnSeekBarChangeListener(viewModel.RudderChanged()); //???
-               // throtlle.setOnSeekBarChangeListener(viewModel.ThrottleChanged()); //???
+                //  rudder.setOnSeekBarChangeListener(viewModel.RudderChanged()); //???
+                // throtlle.setOnSeekBarChangeListener(viewModel.ThrottleChanged()); //???
                 activityBind.setViewModel(viewModel);
                 activityBind.executePendingBindings();
                 joystick.addMoved(viewModel);
@@ -104,6 +105,3 @@ setContentView(R.layout.activity_main);
 
     }
 }
-
-
-

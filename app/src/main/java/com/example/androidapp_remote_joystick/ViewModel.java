@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class ViewModel implements Joystick.JoystickMoved{
 
-    Model model;
+   Model model;
 
     public ViewModel(String ip, int port){
         model = new Model(ip, port);

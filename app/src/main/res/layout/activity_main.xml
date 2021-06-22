@@ -36,13 +36,13 @@
 
         <SeekBar
             android:id="@+id/seekBarThrottle"
-            android:layout_width="170dp"
-            android:layout_height="89dp"
+            android:layout_width="168dp"
+            android:layout_height="87dp"
 
             android:layout_marginEnd="268dp"
             android:layout_marginRight="268dp"
             android:max="100"
-            android:min="-100"
+            android:min="0"
             android:progress="0"
             android:progressTint="@color/pink"
 
