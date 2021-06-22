@@ -50,8 +50,10 @@ We provide a UMLdiagram of the project
 
 First you need to write your Ip v4 and not localhost! Also you need to specify the port you choose to use
 Then click on CONNECT.
-<img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/ip-port.PNG" width="160" height="105"/>
+
 <img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/ipPort.PNG" width="160" height="105"/>
+<img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/ip-port.PNG" width="160" height="105"/>
+
 
 **Joystick and Seek Bars**
 After click on CONNECT - you can start your flight and control the plane -your are now the pilot!
