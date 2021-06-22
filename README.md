@@ -20,6 +20,7 @@ Before starting using our app, there are a few steps you need to follow:
 ----telnet=socket,in,10,127.0.0.1,6400,tcpl
 ```
 Before compiling and running, please make sure to have installed Android Studio and to have available port: `6400`.
+You also need to choose a smartphone (first you need to install AVD Manager).
 
 ## Compiling & Running
 
