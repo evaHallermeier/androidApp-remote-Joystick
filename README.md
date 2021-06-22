@@ -51,7 +51,9 @@ We provide a Uml diagram of the project in the file (FlightUml.png)
 <img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/ipPort.PNG" width="160" height="105"/>
 
 **Joystick and Seek Bars**
-<img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/joystickSeekBar.PNG" width="160" height="105"/>
+
+
+<img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/joystickSeekBar.PNG" width="115" height="115"/>
 
 
 //explain different features: srat process+ seek bar +joystick
