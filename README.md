@@ -20,7 +20,7 @@ Before starting using our app, there are a few steps you need to follow:
     We recommend version 2020.3.6.
 - Open FG, go into `Settings > Additional Settings`. Paste there:
 ```
-----telnet=socket,in,10,127.0.0.1,6400,tcpl
+----telnet=socket,in,10,127.0.0.1,6400,tcp
 ```
 Before compiling and running, please make sure to have installed Android Studio and to have available port: `6400`.
 You also need to choose a smartphone (first you need to install AVD Manager).
