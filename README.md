@@ -1,4 +1,4 @@
-# Remote Joystick Control for Flight Gear - Android Application
+# Remote Control Joystick for Flight Gear - Android Application
 [Click here for the Demo Video](link here to add)
 
 This project is an android application, developed in Java with Android Studio. The app uses a client-server structure and MVVM architecture, it give to the user to control the plane in the Flight Gear simulator.
@@ -34,7 +34,7 @@ You also need to choose a smartphone (first you need to install AVD Manager).
 
 ## Deployment
 
-### MVVVM Architechture
+### MVVM Architechture
 
 **Model**: the business logic and responsible for the communication with Fligh Gear via TCP Socket: send values of the different features in order to mantain the plane correctly during the flight and FG can display the flight in real time depends on the choice of the user. 
 **View**: the user interface on the application on the smartphone
@@ -51,6 +51,11 @@ We provide a Uml diagram of the project in the file (FlightUml.png)
 <img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/ipPort.PNG" width="160" height="105"/>
 
 **Joystick and Seek Bars**
+
+In the Joystick the user control values of aileron and elevator that are between -1 and 1.
+There are also 2 seek bar : 
+- In the left side: the user control the value of throttle between 0 and 1
+- At the bottom of the screen there is another seek bar that control the value of rudder between -1 and 1
 
 
 <img src="https://github.com/evaHallermeier/androidApp-remote-Joystick/blob/master/image/joystickSeekBar.PNG" width="115" height="115"/>
