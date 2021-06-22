@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="oval">
-            <solid android:color="@color/purple_200"/>
-            <size android:width="250dp" android:height="250dp"/>
-        </shape>
-    </item>
-</selector>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="60"
+        android:startColor="@color/purple_700"
+        android:endColor="@color/white"/>
+
+
+
+
+</shape>

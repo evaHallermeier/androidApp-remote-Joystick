@@ -2,11 +2,29 @@ package com.example.androidapp_remote_joystick;
 import android.content.Context;
 import android.graphics.Canvas;
 import java.util.ArrayList;
+
+import android.graphics.LinearGradient;
 import android.util.AttributeSet;
 import android.graphics.Paint;
+import android.graphics.Paint;
 import android.graphics.Color;
+import android.content.Context;
+
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.BitmapShader;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.View;
 import android.view.MotionEvent;
 import android.view.View;
+import 	android.graphics.Shader;
+import android.graphics.PorterDuff;
 
 public class Joystick extends View implements View.OnTouchListener {
 
@@ -54,16 +72,27 @@ public class Joystick extends View implements View.OnTouchListener {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        bigCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
-        bigCircle.setColor(Color.MAGENTA);
+       // Canvas myCanvas = this.getHolder().lockCanvas(); //Stuff to draw
+        bigCircle = new Paint();
+        //canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR); // Clear the BG
+       bigCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
+        bigCircle.setColor(getResources().getColor(R.color.lpink));
         bigCircle.setStyle(Paint.Style.FILL_AND_STROKE);
 
+        //canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+       // bigCircle.setARGB(255, 100, 100, 100); //for test
+
+
+
+
+       // canvas.drawPaint(bigCircle);
         littleCircle = new Paint();
-        littleCircle.setColor(Color.BLUE);
+       // littleCircle.setColor(getResources().getColor(R.color.purple_500));
+        littleCircle.setShader(new LinearGradient(xPosition, yPosition, xPosition+little_radius, yPosition+little_radius, getResources().getColor(R.color.lpink), Color.WHITE, Shader.TileMode.MIRROR));
         littleCircle.setStyle(Paint.Style.FILL);
 
-       x_center = (getWidth() / 2) + 30;
-        y_center = (getHeight() / 2) + 30;
+       x_center = (getWidth() / 2) + 50;
+        y_center = (getHeight() / 2) + 50;
        // x_center = (getWidth() / 2);
         //y_center = (getHeight() / 2);
         System.out.println("getwitdh " + getWidth());

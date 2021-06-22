@@ -22,11 +22,15 @@ public class Model {
 
         public void connect() throws IOException{
             try {
+                System.out.println("port is" + port);
+                System.out.println("ip ip is" + ip);
                 Socket fg = new Socket(ip, port);
                 out = new PrintWriter(fg.getOutputStream(), true);
 
                 new Thread(new Runnable() {
                     public void run() {
+                       // Socket fg = new Socket(ip, port);
+                        //out = new PrintWriter(fg.getOutputStream(), true);
                         while (true) {
                             try {
                                 dispatchQueue.take().run();

@@ -14,7 +14,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/heaven_bak">
 
 
         <com.example.androidapp_remote_joystick.Joystick
@@ -35,7 +36,7 @@
 
         <SeekBar
             android:id="@+id/seekBarThrottle"
-            android:layout_width="150dp"
+            android:layout_width="170dp"
             android:layout_height="89dp"
 
             android:layout_marginEnd="268dp"
@@ -43,14 +44,14 @@
             android:max="100"
             android:min="-100"
             android:progress="0"
-            android:progressTint="@color/black"
+            android:progressTint="@color/pink"
 
 
             android:rotation="-90"
 
             android:scaleX="2"
             android:scaleY="2"
-            android:thumbTint="@color/purple_700"
+            android:thumbTint="@color/lpink"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -64,10 +65,10 @@
             android:max="100"
             android:min="-100"
             android:progress="0"
-            android:progressTint="@color/black"
+            android:progressTint="@color/pink"
             android:scaleX="2"
             android:scaleY="2"
-            android:thumbTint="@color/purple_700"
+            android:thumbTint="@color/pink"
             android:tickMarkTint="@color/cardview_dark_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +84,7 @@
             android:layout_width="130dp"
             android:layout_height="41dp"
             android:text="CONNECT"
+            android:background="@color/mauve"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.081"
