@@ -13,70 +13,32 @@ public class Model {
         private double elevator;
         private double rudder;
         private double throttle;
-       // private Socket fg;
-
 
         public Model(String ip, int port) {
             this.ip = ip;
             this.port = port;
         }
 
-    public void back_connect() throws IOException{
-        try {
-            System.out.println("port is" + port);
-            System.out.println("ip ip is" + ip);
-        //    Socket fg = new Socket(ip,port);
-        //    Socket fg = new Socket("192.168.0.92", 4477);
-         //   out = new PrintWriter(fg.getOutputStream(), true);
-            System.out.println("laurent" + ip);
-
-            new Thread(new Runnable() {
-                public void run() {
-                    try{
-                    Socket fg = new Socket("192.168.0.92", 4477);
-                    out = new PrintWriter(fg.getOutputStream(), true);
-                    while (true) {
-                        try {
-                            dispatchQueue.take().run();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }}catch(Exception e){
-                        System.out.println("Server problem");
-                    }
-                }
-            }).start();
-        }
-        catch(Exception e){
-            System.out.println("Server problem");
-        }
-    }
-
     public void connect() throws IOException{
             new Thread(new Runnable() {
                 public void run() {
                     try {
-                        System.out.println("port is" + port);
-                        System.out.println("ip ip is" + ip);
+                       // System.out.println("port is" + port);
+                        //System.out.println("ip ip is" + ip);
                            Socket fg = new Socket(ip,port);
                        // Socket fg = new Socket("192.168.0.92", 4477);
                         out = new PrintWriter(fg.getOutputStream(), true);
-                        System.out.println("laurent" + ip);
-
                         while (true) {
                             dispatchQueue.take().run();
                         }
-
-
                     } catch (Exception e) {
                         System.out.println("Server problem");
                     }
                 }
             }).start();
-
     }
 
-    public void dispatch_fly() throws InterruptedException {
+    public void dispatch_fly() throws InterruptedException { //for joystick values -aileron+elevator
             dispatchQueue.put(new Runnable() {
                 @Override
                 public void run() {
@@ -93,7 +55,7 @@ public class Model {
             dispatchQueue.put(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("rudder is " + rudder);
+                   // System.out.println("rudder is " + rudder);
                     out.print("set /controls/flight/rudder " + rudder + "\r\n");
                     out.flush();
                 }
@@ -104,7 +66,7 @@ public class Model {
             dispatchQueue.put(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("throttle dispatch is " + throttle);
+                 //   System.out.println("throttle dispatch is " + throttle);
                     out.print("set /controls/engines/current-engine/throttle " + throttle + "\r\n");
                     out.flush();
                 }
@@ -113,24 +75,23 @@ public class Model {
 
         public void setAileron(double aileron) {
             this.aileron=aileron;
-            System.out.println("aileron is " + this.aileron);
+           // System.out.println("aileron is " + this.aileron);
         }
 
         public void setElevator(double elevator) {
 
             this.elevator = elevator;
-            System.out.println("elevator is " + this.elevator);
+           // System.out.println("elevator is " + this.elevator);
         }
 
         public void setRudder(double rudder) {
             this.rudder = rudder/100;
-            System.out.println("rudder is " + this.rudder);
+          //  System.out.println("rudder is " + this.rudder);
         }
 
         public void setThrottle(double throttle) {
-
             this.throttle = throttle/100;
-            System.out.println("trhottle is " + this.throttle);
+           // System.out.println("trhottle is " + this.throttle);
 
         }
 }

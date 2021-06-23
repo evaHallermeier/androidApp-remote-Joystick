@@ -10,13 +10,10 @@
             type="com.example.androidapp_remote_joystick.ViewModel" />
     </data>
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/heaven_bak">
-
 
         <com.example.androidapp_remote_joystick.Joystick
             android:id="@+id/joystick"
@@ -28,40 +25,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- android:onProgressChanged="@{viewModel.ThrottleChanged}"-->
-
-
-        <!--android:onProgressChanged="@{viewModel.RudderChanged}"-->
-
 
         <SeekBar
             android:id="@+id/seekBarThrottle"
-            android:layout_width="168dp"
-            android:layout_height="87dp"
-
+            android:layout_width="150dp"
+            android:layout_height="90dp"
             android:layout_marginEnd="268dp"
             android:layout_marginRight="268dp"
             android:max="100"
             android:min="0"
             android:progress="0"
             android:progressTint="@color/pink"
-
-
             android:rotation="-90"
-
             android:scaleX="2"
             android:scaleY="2"
-            android:thumbTint="@color/lpink"
+            android:thumbTint="@color/pink"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.545" />
+            app:layout_constraintVertical_bias="0.545"
+            />
 
         <SeekBar
-
             android:id="@+id/seekBarRudder"
-            android:layout_width="180dp"
-            android:layout_height="96dp"
+            android:layout_width="150dp"
+            android:layout_height="90dp"
             android:max="100"
             android:min="-100"
             android:progress="0"
@@ -72,12 +60,11 @@
             android:tickMarkTint="@color/cardview_dark_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintHorizontal_bias="0.61"
+            app:layout_constraintHorizontal_bias="0.586"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.853" />
+            app:layout_constraintVertical_bias="0.881" />
 
         <Button
             android:id="@+id/connect_button"
