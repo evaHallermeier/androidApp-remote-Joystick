@@ -43,7 +43,7 @@ You also need to choose a smartphone (make sure that AVD Manager is installed).
 **View Model**: send command /notify  to the model when the value of a feature has been changed by the user
 
 The code has been separated in different classes: Joystick and mainActivity are part of View, and we have a ViewModel class and a class Model
-We provide a UMLdiagram of the project
+We provide a UMLdiagram of the project with name : umlGit.PNG
 
 ## Functionalities
 **IP and Port**
